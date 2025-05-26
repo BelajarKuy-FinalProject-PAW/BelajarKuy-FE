@@ -10,10 +10,10 @@ const RegisterPage = () => {
     <div>
       {/* Header */}
       <div className="flex items-center px-56 justify-between p-6 border-b border-gray-200">
-        <h1 className="text-2xl font-bold">BelajarKuy</h1>
+        <a href="/pages/home"><h1 className="text-2xl font-bold">BelajarKuy</h1></a> 
         <div className="flex space-x-4 items-center">
-          <a href="/pages/register"><button className="text-gray-400">Don't have account?</button></a>
-          <a href="/pages/login"><button className="px-4 py-2 bg-orange-100 text-orange-600 rounded">
+          <a href="/pages/login"><button className="text-gray-400">have account? Sign in</button></a>
+          <a href="/pages/register"><button className="px-4 py-2 bg-orange-100 text-orange-600 rounded">
             Create Account
           </button></a>
         </div>
