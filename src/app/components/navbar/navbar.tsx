@@ -8,14 +8,6 @@ const Navbar = () => {
       <div className="flex items-center justify-between px-10 py-5 border-b border-gray-200">
         <div className="flex items-center space-x-32">
           <a href="/pages/home"><h1 className="text-3xl font-bold">BelajarKuy</h1></a>
-          {/* <div className="flex items-center justify-center border border-gray-300 rounded-lg p-2 group">
-            <Searchbar type="text" placeholder="Search" className=" focus:outline-none "/>
-            <IoMdSearch className="text-2xl "/>
-        </div> */}
-          <ul className="flex space-x-8 text-lg font-medium">
-            <a href="/pages/courses"><li>Courses</li></a>
-             <a><li>Quiz</li></a>
-          </ul>
         </div>
 
         <div className="flex items-center space-x-4">

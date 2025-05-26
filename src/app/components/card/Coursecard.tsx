@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { Course } from "@/app/types/bestsell";
+import Link from 'next/link'
 
 interface CardProps {
     course: Course 
@@ -9,6 +10,7 @@ interface CardProps {
 
 export default function CourseCard({ course, className = "" }: CardProps) {
   return (
+    <Link href={`/pages/courses/${course.id}`}>
     <div
       className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}
     >
@@ -45,5 +47,6 @@ export default function CourseCard({ course, className = "" }: CardProps) {
         </div>
       </div>
     </div>
+    </Link>
   )
 }

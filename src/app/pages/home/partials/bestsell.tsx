@@ -55,12 +55,12 @@ const BestSell = () => {
           <CourseCard key={course.id} course={course} />
         ))}
       </div>
-      <Button
+      <a href="/pages/courses"><Button
         size="lg"
         className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-colors duration-200"
       >
         Jelajahi Lebih Banyak
-      </Button>
+      </Button></a>
     </div>
   );
 };
