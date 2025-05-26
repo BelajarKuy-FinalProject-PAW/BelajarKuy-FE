@@ -16,12 +16,12 @@ const Quiz = () => {
             setiap hari dan kumpulkan poinnya! Banyak kejutan menarik menantimu
             di setiap tantangan."
           </p>
-          <Button
+          <a href="/pages/quiz"><Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white  text-lg font-semibold rounded-md transition-colors duration-200"
           >
             Play Now
-          </Button>
+          </Button></a>
         </div>
       </div>
 
