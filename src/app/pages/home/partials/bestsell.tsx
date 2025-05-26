@@ -1,6 +1,7 @@
 import React from "react";
 import { Course } from "@/app/types/bestsell";
 import CourseCard from "@/app/components/card/Coursecard";
+import Button from "@/app/components/button/button";
 
 const BestSelling: Course[] = [
   {
@@ -10,7 +11,6 @@ const BestSelling: Course[] = [
     image: "/placeholder.svg?height=200&width=300",
     rating: 5.0,
     studentsCount: "265.7K",
-    price: 57,
   },
   {
     id: "2",
@@ -19,7 +19,6 @@ const BestSelling: Course[] = [
     image: "/placeholder.svg?height=200&width=300",
     rating: 5.0,
     studentsCount: "265.7K",
-    price: 57,
   },
   {
     id: "3",
@@ -28,7 +27,6 @@ const BestSelling: Course[] = [
     image: "/placeholder.svg?height=200&width=300",
     rating: 5.0,
     studentsCount: "265.7K",
-    price: 57,
   },
   {
     id: "4",
@@ -37,7 +35,6 @@ const BestSelling: Course[] = [
     image: "/placeholder.svg?height=200&width=300",
     rating: 5.0,
     studentsCount: "265.7K",
-    price: 57,
   },
   {
     id: "5",
@@ -46,7 +43,6 @@ const BestSelling: Course[] = [
     image: "/placeholder.svg?height=200&width=300",
     rating: 5.0,
     studentsCount: "265.7K",
-    price: 57,
   },
 ];
 
@@ -56,9 +52,15 @@ const BestSell = () => {
       <h1 className="text-4xl font-semibold ">Best courses</h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 py-20">
         {BestSelling.map((course) => (
-            <CourseCard key={course.id} course={course}/>
+          <CourseCard key={course.id} course={course} />
         ))}
       </div>
+      <Button
+        size="lg"
+        className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-colors duration-200"
+      >
+        Jelajahi Lebih Banyak
+      </Button>
     </div>
   );
 };

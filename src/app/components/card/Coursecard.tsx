@@ -1,29 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
-
-export interface Course {
-  id: string
-  title: string
-  category: string
-  image: string
-  rating: number
-  studentsCount: string
-  price: number
-  instructor?: string
-}
-
-export interface CourseCardProps {
-  course: Course
-  className?: string
-}
-
+import { Course } from "@/app/types/bestsell";
 
 interface CardProps {
-    courser: Course 
+    course: Course 
     className?: string
 }
 
-export default function CourseCard({ course, className = "" }: CourseCardProps) {
+export default function CourseCard({ course, className = "" }: CardProps) {
   return (
     <div
       className={`bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 ${className}`}
@@ -58,11 +42,6 @@ export default function CourseCard({ course, className = "" }: CourseCardProps) 
             <span className="text-sm font-medium text-gray-900">{course.rating}</span>
           </div>
           <span className="text-sm text-gray-600">{course.studentsCount} students</span>
-        </div>
-
-        {/* Price */}
-        <div className="text-right">
-          <span className="text-lg font-bold text-orange-500">${course.price}</span>
         </div>
       </div>
     </div>

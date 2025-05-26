@@ -5,7 +5,7 @@ export interface Course {
   image: string
   rating: number
   studentsCount: string
-  price: number
+  price?: number
   instructor?: string
 }
 
