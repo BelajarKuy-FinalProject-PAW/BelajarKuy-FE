@@ -1,0 +1,20 @@
+export interface Step {
+  id: string
+  stepNumber: number
+  title: string
+  description: string
+  image: string
+  imageAlt: string
+}
+
+export interface StepCardProps {
+  step: Step
+  className?: string
+}
+
+export interface HowItWorksProps {
+  title?: string
+  subtitle?: string
+  steps: Step[]
+  className?: string
+}

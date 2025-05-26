@@ -29,7 +29,7 @@ const Jumbotron = () => {
 
           {/* Right Image with Diagonal Overlay */}
           <div className="relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-1/2">
-          <div className="absolute inset-0 bg-gray-900 transform skew-x-12 origin-top-right scale-110 lg:block hidden"></div>
+          <div className="absolute inset-0 bg-gray-900 transform lg:block hidden"></div>
             {/* Image Container */}
             <div className="relative h-96 lg:h-full">
               {/* <Image
