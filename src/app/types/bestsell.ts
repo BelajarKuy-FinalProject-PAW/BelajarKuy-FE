@@ -1,8 +1,10 @@
+import { StaticImageData } from 'next/image'
+
 export interface Course {
   id: string
   title: string
   category: string
-  image: string
+  image: string | StaticImageData
   rating: number
   studentsCount: string
   price?: number

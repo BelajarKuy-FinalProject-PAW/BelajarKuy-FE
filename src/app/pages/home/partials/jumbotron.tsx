@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Button from '@/app/components/button/button'
+import JumbotronImage from '@/app/assets/JumbotronImg.png'
 
 const Jumbotron = () => {
   return (
@@ -18,27 +19,26 @@ const Jumbotron = () => {
                 Our mission is to help people to find the best course online and learn with expert anytime, anywhere.
               </p>
 
-              <Button
+              <a href='/pages/register'><Button
                 size="lg"
                 className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-colors duration-200"
               >
                 Create Account
-              </Button>
+              </Button></a>
             </div>
           </div>
 
           {/* Right Image with Diagonal Overlay */}
           <div className="relative lg:absolute lg:right-0 lg:top-0 lg:bottom-0 lg:w-1/2">
-          <div className="absolute inset-0 bg-gray-900 transform lg:block hidden"></div>
             {/* Image Container */}
             <div className="relative h-96 lg:h-full">
-              {/* <Image
-                src="/images/hero-image.png"
+              <Image
+                src= {JumbotronImage}
                 alt="Woman with glasses holding books in a learning environment"
                 fill
                 className="object-cover object-center"
                 priority
-              /> */}
+              />
             </div>
           </div>
         </div>

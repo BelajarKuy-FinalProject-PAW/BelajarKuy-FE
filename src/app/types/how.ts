@@ -1,9 +1,11 @@
+import { StaticImageData } from "next/image";
+
 export interface Step {
   id: string
   stepNumber: number
   title: string
   description: string
-  image: string
+  image: string | StaticImageData
   imageAlt: string
 }
 
