@@ -1,13 +1,12 @@
 "use client"
 import { useState, useEffect } from "react"
-import { useRouter, usePathname } from "next/navigation"
+import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { FaBars, FaTimes, FaUserCircle } from "react-icons/fa"
 
 const Navbar = () => {
   const [user, setUser] = useState<{ name: string; email: string } | null>(null)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const router = useRouter()
   const pathname = usePathname()
 
   useEffect(() => {

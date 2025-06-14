@@ -14,21 +14,21 @@ export default function OverviewTab({ enrolledCourses }: OverviewTabProps) {
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <FaTrophy className="w-5 h-5 text-yellow-600" />
             <div>
-              <p className="font-medium">Completed "React Hooks Deep Dive" quiz</p>
+              <p className="font-medium">Completed React Hooks Deep Dive quiz</p>
               <p className="text-sm text-gray-600">Scored 92/100 • 2 days ago</p>
             </div>
           </div>
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <FaGraduationCap className="w-5 h-5 text-orange-600" />
             <div>
-              <p className="font-medium">Completed "Python Data Science" course</p>
+              <p className="font-medium">Completed Python Data Science course</p>
               <p className="text-sm text-gray-600">5 days ago</p>
             </div>
           </div>
           <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg">
             <FaStar className="w-5 h-5 text-purple-600" />
             <div>
-              <p className="font-medium">Unlocked "Learning Streak" achievement</p>
+              <p className="font-medium">Unlocked Learning Streak achievement</p>
               <p className="text-sm text-gray-600">1 week ago</p>
             </div>
           </div>

@@ -335,11 +335,11 @@ const CoursesPage = () => {
   // Check if any filters are active
   const hasActiveFilters = searchQuery || categoryFilter || sortBy
 
-  // Get unique categories for filter options
-  const uniqueCategories = useMemo(() => {
-    const categories = Courses.map((course) => course.category)
-    return [...new Set(categories)].sort()
-  }, [])
+  // Hapus baris ini karena tidak digunakan
+  // const uniqueCategories = useMemo(() => {
+  //   const categories = Courses.map((course) => course.category)
+  //   return [...new Set(categories)].sort()
+  // }, [])
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -551,7 +551,7 @@ const CoursesPage = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Try adjusting your search terms or filters to find what you're looking for.
+                Try adjusting your search terms or filters to find what you&apos;re looking for.
               </motion.p>
               <motion.button
                 onClick={clearFilters}
@@ -578,7 +578,7 @@ const CoursesPage = () => {
               animate="visible"
               key={`${searchQuery}-${categoryFilter}-${sortBy}`} // Re-animate when filters change
             >
-              {filteredCourses.map((course, index) => (
+              {filteredCourses.map((course) => (
                 <motion.div
                   key={course.id}
                   className="w-full"

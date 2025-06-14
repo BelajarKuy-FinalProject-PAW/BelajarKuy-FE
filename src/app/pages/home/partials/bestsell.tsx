@@ -1,13 +1,14 @@
-"use client"
-import { motion } from "framer-motion"
-import type { Course } from "@/app/types/bestsell"
-import CourseCard from "@/app/components/card/Coursecard"
-import Button from "@/app/components/button/button"
-import CourseImage1 from "@/app/assets/CourseImages1.png"
-import CourseImage2 from "@/app/assets/CourseImages2.png"
-import CourseImage3 from "@/app/assets/CourseImages3.png"
-import CourseImage4 from "@/app/assets/CourseImages4.png"
-import CourseImage5 from "@/app/assets/CourseImages5.png"
+"use client";
+import { motion } from "framer-motion";
+import type { Course } from "@/app/types/bestsell";
+import CourseCard from "@/app/components/card/Coursecard";
+import Button from "@/app/components/button/button";
+import CourseImage1 from "@/app/assets/CourseImages1.png";
+import CourseImage2 from "@/app/assets/CourseImages2.png";
+import CourseImage3 from "@/app/assets/CourseImages3.png";
+import CourseImage4 from "@/app/assets/CourseImages4.png";
+import CourseImage5 from "@/app/assets/CourseImages5.png";
+import Link from "next/link";
 
 const BestSelling: Course[] = [
   {
@@ -50,7 +51,7 @@ const BestSelling: Course[] = [
     rating: 5.0,
     studentsCount: "265.7K",
   },
-]
+];
 
 const BestSell = () => {
   return (
@@ -107,17 +108,17 @@ const BestSell = () => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <a href="/pages/courses">
+        <Link href="/pages/courses">
           <Button
             size="lg"
             className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 text-lg font-semibold rounded-md transition-colors duration-200"
           >
             Jelajahi Lebih Banyak
           </Button>
-        </a>
+        </Link>
       </motion.div>
     </motion.div>
-  )
-}
+  );
+};
 
-export default BestSell
+export default BestSell;

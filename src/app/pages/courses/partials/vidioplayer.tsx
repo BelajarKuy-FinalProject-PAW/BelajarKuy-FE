@@ -15,7 +15,7 @@ interface VideoPlayerProps {
   className?: string
 }
 
-export default function VideoPlayer({ videoUrl, title, className = "" }: VideoPlayerProps) {
+export default function VideoPlayer({ videoUrl, className = "" }: VideoPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)

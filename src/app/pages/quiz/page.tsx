@@ -543,7 +543,7 @@ export default function QuizzesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                Try adjusting your search terms or filters to find what you're looking for.
+                Try adjusting your search terms or filters to find what you are looking for.
               </motion.p>
               <motion.button
                 onClick={clearFilters}
@@ -570,7 +570,7 @@ export default function QuizzesPage() {
               animate="visible"
               key={`${searchQuery}-${difficultyFilter}-${categoryFilter}-${sortBy}`}
             >
-              {filteredQuizzes.map((quiz, index) => (
+              {filteredQuizzes.map((quiz) => (
                 <motion.div
                   key={quiz.id}
                   className="w-full"

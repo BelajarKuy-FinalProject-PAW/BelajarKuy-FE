@@ -77,7 +77,7 @@ interface QuizPageProps {
   }
 }
 
-export default function QuizPage({ params }: QuizPageProps) {
+export default function QuizPage() {
   const router = useRouter()
   const [quiz] = useState<Quiz>(sampleQuiz)
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)

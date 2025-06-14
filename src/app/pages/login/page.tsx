@@ -40,7 +40,7 @@ const LoginPage = () => {
         <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-4 items-end sm:items-center">
           <a href="/pages/register" className="hidden sm:block">
             <button className="text-gray-400 text-sm sm:text-base">
-              Don't have account?
+              Do not have account?
             </button>
           </a>
           <a href="/pages/register">

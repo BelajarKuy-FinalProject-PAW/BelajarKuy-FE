@@ -79,8 +79,8 @@ const Quiz = () => {
           </motion.h1>
 
           <motion.p className="text-base md:text-lg text-gray-600 leading-relaxed" variants={textVariants}>
-            "Kerjakan kuis dan trivia harian yang seru dan menantang. Jawab kuis setiap hari dan kumpulkan poinnya!
-            Banyak kejutan menarik menantimu di setiap tantangan."
+            Kerjakan kuis dan trivia harian yang seru dan menantang. Jawab kuis setiap hari dan kumpulkan poinnya!
+            Banyak kejutan menarik menantimu di setiap tantangan.
           </motion.p>
 
           <motion.div variants={buttonVariants}>

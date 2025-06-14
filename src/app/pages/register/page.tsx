@@ -1,7 +1,6 @@
 import React from "react";
 import Input from "@/app/components/input/input";
 import Image from "next/image";
-import LoginImg from "@/app/assets/LoginImg.png";
 import Button from "@/app/components/button/button";
 import RegisterImg from "@/app/assets/RegisterImg.png";
 
