@@ -34,7 +34,7 @@ const LoginPage = () => {
       } else {
         setError("Email dan password harus diisi")
       }
-    } catch (error) {
+    } catch (err) {
       setError("Terjadi kesalahan saat login")
     } finally {
       setIsLoading(false)
@@ -50,7 +50,7 @@ const LoginPage = () => {
         </a>
         <div className="flex space-x-2 md:space-x-4 items-center">
           <a href="/pages/register">
-            <button className="text-gray-400 text-sm md:text-base hidden sm:block">Don't have account?</button>
+            <button className="text-gray-400 text-sm md:text-base hidden sm:block">{"Don't have account?"}</button>
           </a>
           <a href="/pages/register">
             <button className="px-2 py-1 md:px-4 md:py-2 bg-orange-100 text-orange-600 rounded text-sm md:text-base">
@@ -133,7 +133,7 @@ const LoginPage = () => {
 
             {/* Register Link */}
             <p className="mt-6 text-center text-gray-600 text-sm md:text-base">
-              Don't have an account?{" "}
+              {"Don't have an account?"}{" "}
               <a href="/pages/register" className="text-orange-600 hover:underline font-medium">
                 Create Account
               </a>
