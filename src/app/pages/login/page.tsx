@@ -20,21 +20,17 @@ const LoginPage = () => {
     setIsLoading(true)
 
     try {
-      // Simulate API call delay
       await new Promise((resolve) => setTimeout(resolve, 800))
 
-      // Validasi sederhana
       if (email && password) {
-        // Simpan data user di localStorage
         const user = { name: email.split("@")[0], email }
         localStorage.setItem("user", JSON.stringify(user))
 
-        // Redirect ke halaman utama
         router.push("/pages/home")
       } else {
         setError("Email dan password harus diisi")
       }
-    } catch (err) {
+    } catch {
       setError("Terjadi kesalahan saat login")
     } finally {
       setIsLoading(false)
@@ -43,7 +39,6 @@ const LoginPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      {/* Header - Responsive */}
       <div className="flex items-center justify-between p-4 md:p-6 border-b border-gray-200 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-56">
         <a href="/pages/home">
           <h1 className="text-xl md:text-2xl font-bold">BelajarKuy</h1>
@@ -60,9 +55,7 @@ const LoginPage = () => {
         </div>
       </div>
 
-      {/* Main Content - Responsive Layout */}
       <div className="flex flex-col lg:flex-row items-center justify-center flex-grow">
-        {/* Image Section - Hidden on tablet and smaller (lg:block = show only on large screens and up) */}
         <div className="hidden lg:block lg:w-1/2 h-full">
           <div className="relative h-full min-h-[500px] xl:min-h-[600px]">
             <Image
@@ -76,18 +69,13 @@ const LoginPage = () => {
           </div>
         </div>
 
-        {/* Form Section - Full width on tablet and smaller, half width on large screens */}
         <div className="w-full lg:w-1/2 px-4 py-8 md:px-8 lg:px-12 xl:px-16">
           <div className="max-w-md mx-auto">
-            {/* Title */}
             <div className="text-center mb-6 md:mb-8 lg:mb-10">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">Sign in to your account</h1>
               <p className="text-gray-600 mt-2 text-sm md:text-base">Welcome back! Please enter your details</p>
             </div>
-
-            {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
-              {/* Email Field */}
               <div className="w-full">
                 <Input
                   label="Email"
@@ -95,11 +83,10 @@ const LoginPage = () => {
                   placeholder="Username or email address..."
                   required
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 />
               </div>
 
-              {/* Password Field */}
               <div className="w-full">
                 <Input
                   label="Password"
@@ -108,18 +95,15 @@ const LoginPage = () => {
                   showPasswordToggle
                   required
                   value={password}
-                  onChange={(e) => setPassword(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
                 />
               </div>
-
-              {/* Error Message */}
               {error && (
                 <div className="w-full">
                   <p className="text-red-500 text-sm">{error}</p>
                 </div>
               )}
 
-              {/* Remember Me & Submit Button */}
               <div className="flex flex-col sm:flex-row justify-between w-full items-start sm:items-center gap-4 sm:gap-0 pt-2">
                 <label className="flex gap-2 text-gray-500 text-sm md:text-base">
                   <input type="checkbox" name="agree" className="mt-0.5" />
