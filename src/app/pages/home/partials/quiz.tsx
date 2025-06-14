@@ -5,7 +5,6 @@ import Image from "next/image"
 import quizImage from "@/app/assets/QuizImg.png"
 import type { Variants } from "framer-motion"
 
-// Animation variants
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -114,7 +113,6 @@ const Quiz = () => {
         </motion.div>
       </motion.div>
 
-      {/* Animated background elements */}
       <motion.div
         className="absolute top-10 right-10 w-16 h-16 bg-yellow-200 rounded-full opacity-30"
         initial={{ opacity: 0, scale: 0 }}

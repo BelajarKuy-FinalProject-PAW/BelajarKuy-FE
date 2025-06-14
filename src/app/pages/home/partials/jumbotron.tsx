@@ -68,7 +68,6 @@ const Jumbotron = () => {
     <section className="relative bg-gray-50 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 items-center min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
-          {/* Left Content */}
           <motion.div
             className="relative z-10 py-8 sm:py-12 md:py-16 lg:py-24 order-2 lg:order-1"
             variants={containerVariants}
@@ -107,7 +106,6 @@ const Jumbotron = () => {
             </div>
           </motion.div>
 
-          {/* Right Image */}
           <motion.div
             className="relative order-1 lg:order-2"
             variants={imageVariants}
@@ -115,7 +113,7 @@ const Jumbotron = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Image Container */}
+
             <div className="relative h-64 sm:h-80 md:h-96 lg:h-full lg:min-h-[500px]">
               <motion.div
                 className="absolute inset-0 rounded-lg lg:rounded-none overflow-hidden"
@@ -134,7 +132,6 @@ const Jumbotron = () => {
                 />
               </motion.div>
 
-              {/* Animated overlay gradient */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r rounded-lg lg:rounded-none"
                 initial={{ opacity: 0 }}
@@ -147,7 +144,6 @@ const Jumbotron = () => {
         </div>
       </div>
 
-      {/* Animated background elements - Responsive positioning */}
       <motion.div
         className="absolute top-10 sm:top-16 md:top-20 right-4 sm:right-10 md:right-20 w-16 sm:w-24 md:w-32 h-16 sm:h-24 md:h-32 bg-orange-100 rounded-full opacity-20"
         initial={{ opacity: 0, scale: 0 }}

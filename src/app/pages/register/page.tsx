@@ -8,6 +8,15 @@ import Button from "@/app/components/button/button"
 import RegisterImg from "@/app/assets/RegisterImg.png"
 import { useRouter } from "next/navigation"
 
+// Type definition for registered user
+interface RegisteredUser {
+  id: string
+  username: string
+  email: string
+  password: string
+  createdAt: string
+}
+
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
     username: "",
@@ -89,9 +98,9 @@ const RegisterPage = () => {
       await new Promise((resolve) => setTimeout(resolve, 1000))
 
       // Check if user already exists
-      const existingUsers = JSON.parse(localStorage.getItem("registeredUsers") || "[]")
+      const existingUsers: RegisteredUser[] = JSON.parse(localStorage.getItem("registeredUsers") || "[]")
       const userExists = existingUsers.some(
-        (user: any) => user.email === formData.email || user.username === formData.username,
+        (user: RegisteredUser) => user.email === formData.email || user.username === formData.username,
       )
 
       if (userExists) {
@@ -102,7 +111,7 @@ const RegisterPage = () => {
       }
 
       // Save new user
-      const newUser = {
+      const newUser: RegisteredUser = {
         id: Date.now().toString(),
         username: formData.username,
         email: formData.email,
@@ -189,7 +198,7 @@ const RegisterPage = () => {
                   placeholder="Masukkan username"
                   required
                   value={formData.username}
-                  onChange={(e) => handleInputChange("username", e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("username", e.target.value)}
                 />
                 {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username}</p>}
               </div>
@@ -202,7 +211,7 @@ const RegisterPage = () => {
                   placeholder="Masukkan alamat email"
                   required
                   value={formData.email}
-                  onChange={(e) => handleInputChange("email", e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("email", e.target.value)}
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
@@ -216,7 +225,7 @@ const RegisterPage = () => {
                   showPasswordToggle
                   required
                   value={formData.password}
-                  onChange={(e) => handleInputChange("password", e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleInputChange("password", e.target.value)}
                 />
                 {errors.password && <p className="text-red-500 text-sm mt-1">{errors.password}</p>}
               </div>
@@ -230,7 +239,9 @@ const RegisterPage = () => {
                   showPasswordToggle
                   required
                   value={formData.confirmPassword}
-                  onChange={(e) => handleInputChange("confirmPassword", e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    handleInputChange("confirmPassword", e.target.value)
+                  }
                 />
                 {errors.confirmPassword && <p className="text-red-500 text-sm mt-1">{errors.confirmPassword}</p>}
               </div>
@@ -241,7 +252,9 @@ const RegisterPage = () => {
                   <input
                     type="checkbox"
                     checked={formData.agreeTerms}
-                    onChange={(e) => handleInputChange("agreeTerms", e.target.checked)}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      handleInputChange("agreeTerms", e.target.checked)
+                    }
                     className="mt-1 flex-shrink-0"
                   />
                   <span className="leading-relaxed">

@@ -115,15 +115,13 @@ const LoginPage = () => {
               </div>
             </form>
 
-            {/* Register Link */}
             <p className="mt-6 text-center text-gray-600 text-sm md:text-base">
               {"Don't have an account?"}{" "}
               <a href="/pages/register" className="text-orange-600 hover:underline font-medium">
                 Create Account
               </a>
             </p>
-
-            {/* Forgot Password Link */}
+            
             <p className="mt-2 text-center">
               <a href="#" className="text-orange-600 hover:underline text-sm">
                 Forgot your password?
