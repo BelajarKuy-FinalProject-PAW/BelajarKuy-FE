@@ -1,14 +1,15 @@
 import { notFound } from "next/navigation"
+import { use } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import VideoPlayer from "@/app/pages/courses/partials/vidioplayer"
 import CourseCurriculum from "@/app/pages/courses/partials/curriculumn"
 import type { CourseDetail } from "@/app/types/courses"
-import { FaArrowLeft } from "react-icons/fa6";
-import { CiStar } from "react-icons/ci";
-import { FiUsers } from "react-icons/fi";
-import { CiClock1 } from "react-icons/ci";
-import { FiBarChart } from "react-icons/fi";
+import { FaArrowLeft } from "react-icons/fa6"
+import { CiStar } from "react-icons/ci"
+import { FiUsers } from "react-icons/fi"
+import { CiClock1 } from "react-icons/ci"
+import { FiBarChart } from "react-icons/fi"
 
 // Sample course detail data
 const getCourseDetail = (id: string): CourseDetail | null => {
@@ -71,19 +72,71 @@ const getCourseDetail = (id: string): CourseDetail | null => {
         },
       ],
     },
+    "2": {
+      id: "2",
+      title: "Complete React Development Course",
+      category: "DEVELOPMENT",
+      image: "/placeholder.svg?height=200&width=300",
+      rating: 4.9,
+      studentsCount: "180.5K",
+      isFree: false,
+      price: 99,
+      description:
+        "Master React from beginner to advanced level. Learn hooks, context, routing, state management, and build real-world projects that will make you job-ready.",
+      instructor: {
+        name: "John Doe",
+        avatar: "/placeholder.svg?height=40&width=40",
+        title: "Senior React Developer",
+      },
+      duration: "12 jam 45 menit",
+      lessonsCount: 48,
+      level: "Menengah",
+      videoUrl: "/sample-video.mp4",
+      curriculum: [
+        {
+          id: "module-1",
+          title: "React Fundamentals",
+          lessons: [
+            { id: "lesson-1", title: "Introduction to React", duration: "15:30", isCompleted: false },
+            { id: "lesson-2", title: "JSX and Components", duration: "20:15", isCompleted: false },
+            { id: "lesson-3", title: "Props and State", duration: "25:45", isCompleted: false },
+          ],
+        },
+        {
+          id: "module-2",
+          title: "Advanced React Concepts",
+          lessons: [
+            { id: "lesson-4", title: "React Hooks", duration: "30:30", isCompleted: false },
+            { id: "lesson-5", title: "Context API", duration: "22:15", isCompleted: false },
+            { id: "lesson-6", title: "React Router", duration: "28:20", isCompleted: false },
+          ],
+        },
+      ],
+      reviews: [
+        {
+          id: "review-1",
+          user: { name: "Maria Garcia", avatar: "/placeholder.svg?height=40&width=40" },
+          rating: 5,
+          comment: "Excellent course! Very comprehensive and well-structured. The projects are really helpful.",
+          date: "3 days ago",
+        },
+      ],
+    },
   }
 
   return courseDetails[id] || null
 }
 
 interface CourseDetailPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default function CourseDetailPage({ params }: CourseDetailPageProps) {
-  const course = getCourseDetail(params.id)
+  // Unwrap params Promise using React.use()
+  const resolvedParams = use(params)
+  const course = getCourseDetail(resolvedParams.id)
 
   if (!course) {
     notFound()
@@ -126,7 +179,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
 
               <div className="flex items-center gap-6 mb-6 text-sm text-gray-600">
                 <div className="flex items-center gap-1">
-                  <CiStar  className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                  <CiStar className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                   <span className="font-medium">{course.rating}</span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -134,7 +187,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
                   <span>{course.studentsCount} siswa</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <CiClock1  className="w-4 h-4" />
+                  <CiClock1 className="w-4 h-4" />
                   <span>{course.duration}</span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -166,7 +219,42 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
             </div>
 
             {/* Course Reviews */}
-            {/* <CourseReviews reviews={course.reviews} /> */}
+            <div className="bg-white rounded-lg p-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4">Reviews ({course.reviews.length})</h2>
+              <div className="space-y-4">
+                {course.reviews.map((review) => (
+                  <div key={review.id} className="border-b border-gray-200 pb-4 last:border-b-0">
+                    <div className="flex items-start gap-3">
+                      <div className="relative w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
+                        <Image
+                          src={review.user.avatar || "/placeholder.svg"}
+                          alt={review.user.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-1">
+                          <p className="font-medium text-gray-900">{review.user.name}</p>
+                          <div className="flex items-center">
+                            {[...Array(5)].map((_, i) => (
+                              <CiStar
+                                key={i}
+                                className={`w-4 h-4 ${
+                                  i < review.rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                                }`}
+                              />
+                            ))}
+                          </div>
+                          <span className="text-sm text-gray-500">{review.date}</span>
+                        </div>
+                        <p className="text-gray-700">{review.comment}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Sidebar */}
@@ -178,6 +266,55 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
               <button className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-orange-600 transition-colors">
                 {course.isFree ? "Mulai Belajar Gratis" : `Daftar - $${course.price}`}
               </button>
+
+              {/* Course Stats */}
+              <div className="mt-4 pt-4 border-t border-gray-200">
+                <div className="space-y-2 text-sm text-gray-600">
+                  <div className="flex justify-between">
+                    <span>Total Lessons:</span>
+                    <span className="font-medium">{course.lessonsCount}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Duration:</span>
+                    <span className="font-medium">{course.duration}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Level:</span>
+                    <span className="font-medium">{course.level}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Students:</span>
+                    <span className="font-medium">{course.studentsCount}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Course Features */}
+            <div className="bg-white rounded-lg p-6 border border-gray-200">
+              <h3 className="font-semibold text-gray-900 mb-3">Yang Akan Anda Dapatkan:</h3>
+              <ul className="space-y-2 text-sm text-gray-600">
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Akses seumur hidup
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Sertifikat penyelesaian
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Akses mobile dan desktop
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Forum diskusi
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                  Update materi terbaru
+                </li>
+              </ul>
             </div>
           </div>
         </div>

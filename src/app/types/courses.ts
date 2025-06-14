@@ -1,38 +1,12 @@
-export interface CourseModule {
+export interface CourseDetail {
   id: string
-  title: string
-  lessons: Lesson[]
-  isExpanded?: boolean
-}
-
-export interface Lesson {
-  id: string
-  title: string
-  duration: string
-  isCompleted?: boolean
-  videoUrl?: string
-}
-
-export interface Review {
-  id: string
-  user: {
-    name: string
-    avatar: string
-  }
-  rating: number
-  comment: string
-  date: string
-}
-
-export interface CourseDetail { 
-     id: string
   title: string
   category: string
   image: string
   rating: number
   studentsCount: string
+  isFree: boolean
   price?: number
-  isFree?: boolean
   description: string
   instructor: {
     name: string
@@ -43,6 +17,39 @@ export interface CourseDetail {
   lessonsCount: number
   level: string
   videoUrl: string
-  curriculum: CourseModule[]
-  reviews: Review[]
+  curriculum: CurriculumModule[]
+  reviews: CourseReview[]
+}
+
+export interface CurriculumModule {
+  id: string
+  title: string
+  lessons: CurriculumLesson[]
+}
+
+export interface CurriculumLesson {
+  id: string
+  title: string
+  duration: string
+  isCompleted: boolean
+}
+
+export interface CourseReview {
+  id: string
+  user: {
+    name: string
+    avatar: string
+  }
+  rating: number
+  comment: string
+  date: string
+}
+
+export interface Course {
+  id: string
+  title: string
+  category: string
+  image: string
+  rating: number
+  studentsCount: string
 }
