@@ -9,20 +9,18 @@ interface VideoPlayerProps {
 }
 
 // Mock function to get YouTube video ID based on title
-// In real implementation, you would use YouTube Data API
 const getYouTubeVideoId = (title: string): string => {
-  // Mock mapping of course titles to YouTube video IDs
   const videoMappings: Record<string, string> = {
-    "Sign up to Webflow": "6h649f2fB9Q", // Webflow tutorial
-    "Complete React Development Course": "Ke90Tje7VS0", // React tutorial
-    "JavaScript Fundamentals": "PkZNo7MFNFg", // JavaScript basics
-    "Python Programming": "rfscVS0vtbw", // Python tutorial
-    "Web Development Bootcamp": "pQN-pnXPaVg", // Web dev tutorial
-    "Machine Learning": "ukzFI9rgwfU", // ML tutorial
-    "CSS Grid & Flexbox": "jV8B24rSN5o", // CSS tutorial
-    "Node.js & Express": "fBNz5xF-Kx4", // Node.js tutorial
-    "Database Design & SQL": "HXV3zeQKqGY", // SQL tutorial
-    "DevOps with Docker": "3c-iBn73dDE", // Docker tutorial
+    "Sign up to Webflow": "6h649f2fB9Q",
+    "Complete React Development Course": "Ke90Tje7VS0",
+    "JavaScript Fundamentals": "PkZNo7MFNFg",
+    "Python Programming": "rfscVS0vtbw",
+    "Web Development Bootcamp": "pQN-pnXPaVg",
+    "Machine Learning": "ukzFI9rgwfU",
+    "CSS Grid & Flexbox": "jV8B24rSN5o",
+    "Node.js & Express": "fBNz5xF-Kx4",
+    "Database Design & SQL": "HXV3zeQKqGY",
+    "DevOps with Docker": "3c-iBn73dDE",
   }
 
   // Try to find exact match first
@@ -39,17 +37,12 @@ const getYouTubeVideoId = (title: string): string => {
     return videoMappings[partialMatch]
   }
 
-  // Default fallback video (programming tutorial)
+  // Default fallback video
   return "PkZNo7MFNFg"
 }
 
 // Function to search YouTube (mock implementation)
 const searchYouTubeVideo = async (query: string): Promise<string> => {
-  // In real implementation, you would call YouTube Data API
-  // const response = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(query)}&key=${API_KEY}`)
-  // const data = await response.json()
-  // return data.items[0]?.id?.videoId || getYouTubeVideoId(query)
-
   // For now, return mock result
   return getYouTubeVideoId(query)
 }
@@ -104,10 +97,6 @@ const VideoPlayer = ({ videoUrl, title, className = "" }: VideoPlayerProps) => {
 
   const getYouTubeEmbedUrl = (id: string) => {
     return `https://www.youtube.com/embed/${id}?rel=0&modestbranding=1&showinfo=0`
-  }
-
-  const getYouTubeThumbnail = (id: string) => {
-    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`
   }
 
   const openInYouTube = () => {
