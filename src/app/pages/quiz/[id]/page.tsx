@@ -71,12 +71,6 @@ const sampleQuiz: Quiz = {
   ],
 }
 
-interface QuizPageProps {
-  params: {
-    id: string
-  }
-}
-
 export default function QuizPage() {
   const router = useRouter()
   const [quiz] = useState<Quiz>(sampleQuiz)
