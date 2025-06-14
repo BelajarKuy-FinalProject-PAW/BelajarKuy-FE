@@ -6,13 +6,23 @@ import Navbar from "@/app/components/navbar/navbar"
 import CourseCard from "@/app/components/card/Coursecard"
 import { IoMdSearch } from "react-icons/io"
 import type { Variants } from "framer-motion"
+import course1 from "@/app/assets/course1.jpeg"
+import course2 from "@/app/assets/course2.png"
+import course3 from "@/app/assets/course3.jpeg"
+import course4 from "@/app/assets/course4.jpeg"
+import course5 from "@/app/assets/course5.jpg"
+import course6 from "@/app/assets/course6.png"
+import course7 from "@/app/assets/course7.jpg"
+import course8 from "@/app/assets/course8.png"
+import course9 from "@/app/assets/course9.jpeg"
+import course10 from "@/app/assets/course10.png"
 
 const Courses: Course[] = [
   {
     id: "1",
     title: "Learn python programming masterclass",
     category: "DEVELOPMENT",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course1,
     rating: 5.0,
     studentsCount: "265.7K",
   },
@@ -20,7 +30,7 @@ const Courses: Course[] = [
     id: "2",
     title: "The Complete 2021 Web Development Bootcamp",
     category: "IT DEVELOPMENT",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course2,
     rating: 4.8,
     studentsCount: "150K",
   },
@@ -28,23 +38,23 @@ const Courses: Course[] = [
     id: "3",
     title: "Machine Learning A-Z™: Hands-On Python & R In Data Science",
     category: "DATA SCIENCE",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course3,
     rating: 4.9,
     studentsCount: "200K",
   },
   {
     id: "4",
     title: "Ultimate Certified Solution Architect",
-    category: "MARKETING",
-    image: "/placeholder.svg?height=200&width=300",
+    category: "Development",
+    image: course4,
     rating: 4.7,
     studentsCount: "180K",
   },
   {
     id: "5",
-    title: "Reiki Level I, II and Master/Teacher Program",
+    title: "AWS certified solutions ",
     category: "LIFESTYLE",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course5,
     rating: 4.6,
     studentsCount: "120K",
   },
@@ -52,7 +62,7 @@ const Courses: Course[] = [
     id: "6",
     title: "Web Development Bootcamp: HTML, CSS, JS, React",
     category: "WEB DEVELOPMENT",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course6,
     rating: 4.8,
     studentsCount: "180K",
   },
@@ -60,15 +70,15 @@ const Courses: Course[] = [
     id: "7",
     title: "Mastering Data Structures & Algorithms in JavaScript",
     category: "PROGRAMMING",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course7,
     rating: 4.7,
     studentsCount: "150K",
   },
   {
     id: "8",
-    title: "Machine Learning A-Z™: Hands-On Python & R In Data Science",
+    title: "Arch Linux: The Complete Beginner's Guide",
     category: "DATA SCIENCE",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course8,
     rating: 4.9,
     studentsCount: "200K",
   },
@@ -76,7 +86,7 @@ const Courses: Course[] = [
     id: "9",
     title: "Linux Administration: Complete Guide",
     category: "SYSTEM ADMINISTRATION",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course9,
     rating: 4.6,
     studentsCount: "95K",
   },
@@ -84,49 +94,9 @@ const Courses: Course[] = [
     id: "10",
     title: "Introduction to Cloud Computing with AWS",
     category: "CLOUD COMPUTING",
-    image: "/placeholder.svg?height=200&width=300",
+    image: course10,
     rating: 4.8,
     studentsCount: "130K",
-  },
-  {
-    id: "11",
-    title: "DevOps Bootcamp: CI/CD with Docker & Jenkins",
-    category: "DEVOPS",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4.7,
-    studentsCount: "110K",
-  },
-  {
-    id: "12",
-    title: "Cybersecurity Fundamentals: Protect Your Systems",
-    category: "CYBERSECURITY",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4.9,
-    studentsCount: "85K",
-  },
-  {
-    id: "13",
-    title: "Database Design & SQL for Beginners",
-    category: "DATABASE",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4.6,
-    studentsCount: "170K",
-  },
-  {
-    id: "14",
-    title: "Mobile App Development with Flutter",
-    category: "MOBILE DEVELOPMENT",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4.8,
-    studentsCount: "120K",
-  },
-  {
-    id: "15",
-    title: "Artificial Intelligence for Beginners",
-    category: "AI",
-    image: "/placeholder.svg?height=200&width=300",
-    rating: 4.7,
-    studentsCount: "100K",
   },
 ]
 
@@ -514,7 +484,6 @@ const CoursesPage = () => {
           </motion.p>
         </motion.div>
 
-        {/* No Results Message */}
         <AnimatePresence>
           {filteredCourses.length === 0 && (
             <motion.div
@@ -576,7 +545,7 @@ const CoursesPage = () => {
               variants={gridVariants}
               initial="hidden"
               animate="visible"
-              key={`${searchQuery}-${categoryFilter}-${sortBy}`} // Re-animate when filters change
+              key={`${searchQuery}-${categoryFilter}-${sortBy}`} 
             >
               {filteredCourses.map((course) => (
                 <motion.div
@@ -601,7 +570,6 @@ const CoursesPage = () => {
           )}
         </AnimatePresence>
 
-        {/* Load More Button - Only show if there are results */}
         {filteredCourses.length > 0 && (
           <motion.div
             className="flex justify-center mt-12 sm:mt-16"
@@ -622,7 +590,6 @@ const CoursesPage = () => {
           </motion.div>
         )}
 
-        {/* Course Statistics */}
         {filteredCourses.length > 0 && (
           <motion.div
             className="mt-12 sm:mt-16 bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200"

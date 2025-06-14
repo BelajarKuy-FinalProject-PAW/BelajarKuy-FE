@@ -5,13 +5,19 @@ import QuizCard from "@/app/components/card/quizcard"
 import Navbar from "@/app/components/navbar/navbar"
 import { IoMdSearch, IoMdTrophy, IoMdTime, IoMdStats } from "react-icons/io"
 import type { Variants } from "framer-motion"
+import quiz1 from "@/app/assets/quiz1.jpeg"
+import quiz2 from "@/app/assets/quiz2.png"
+import quiz3 from "@/app/assets/quiz3.png"
+import quiz4 from "@/app/assets/quiz4.png"
 
 // Quiz type definition
+import type { StaticImageData } from "next/image"
+
 type Quiz = {
   id: string
   title: string
   description: string
-  image: string
+  image: string | StaticImageData
   difficulty: "Easy" | "Medium" | "Hard"
   duration: number
   questionsCount: number
@@ -25,7 +31,7 @@ const quizzes: Quiz[] = [
     id: "1",
     title: "JavaScript Fundamentals Quiz",
     description: "Test your knowledge of JavaScript basics including variables, functions, and data types.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: quiz1,
     difficulty: "Easy",
     duration: 15,
     questionsCount: 10,
@@ -36,7 +42,7 @@ const quizzes: Quiz[] = [
     id: "2",
     title: "React Hooks Deep Dive",
     description: "Advanced quiz covering useState, useEffect, useContext and custom hooks.",
-    image: "/placeholder.svg?height=200&width=300",
+    image:  quiz2,
     difficulty: "Medium",
     duration: 25,
     questionsCount: 15,
@@ -47,7 +53,7 @@ const quizzes: Quiz[] = [
     id: "3",
     title: "Node.js & Express Mastery",
     description: "Comprehensive test on backend development with Node.js and Express framework.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: quiz3,
     difficulty: "Hard",
     duration: 30,
     questionsCount: 20,
@@ -58,34 +64,12 @@ const quizzes: Quiz[] = [
     id: "4",
     title: "CSS Grid & Flexbox",
     description: "Master modern CSS layout techniques with Grid and Flexbox.",
-    image: "/placeholder.svg?height=200&width=300",
+    image: quiz4,
     difficulty: "Medium",
     duration: 20,
     questionsCount: 12,
     points: 150,
     category: "css",
-  },
-  {
-    id: "5",
-    title: "Python Data Structures",
-    description: "Test your understanding of lists, dictionaries, sets, and tuples in Python.",
-    image: "/placeholder.svg?height=200&width=300",
-    difficulty: "Easy",
-    duration: 18,
-    questionsCount: 14,
-    points: 120,
-    category: "python",
-  },
-  {
-    id: "6",
-    title: "Database Design & SQL",
-    description: "Advanced quiz on database normalization, joins, and complex queries.",
-    image: "/placeholder.svg?height=200&width=300",
-    difficulty: "Hard",
-    duration: 35,
-    questionsCount: 25,
-    points: 350,
-    category: "database",
   },
 ]
 

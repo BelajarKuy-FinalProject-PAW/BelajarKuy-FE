@@ -1,13 +1,14 @@
 import Image from "next/image"
 import Link from "next/link"
 import PlayNowButton from "@/app/components/button/playnowbutton"
+import type { StaticImageData } from "next/image"
 
 interface QuizCardProps {
   quiz: {
     id: string
     title: string
     description: string
-    image: string
+    image: string | StaticImageData
     difficulty: "Easy" | "Medium" | "Hard"
     duration: number // in minutes
     questionsCount: number
