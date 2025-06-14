@@ -10,7 +10,6 @@ import quiz2 from "@/app/assets/quiz2.png"
 import quiz3 from "@/app/assets/quiz3.png"
 import quiz4 from "@/app/assets/quiz4.png"
 
-// Quiz type definition
 import type { StaticImageData } from "next/image"
 
 type Quiz = {
@@ -202,17 +201,14 @@ const noResultsVariants: Variants = {
 }
 
 export default function QuizzesPage() {
-  // State for filters and search
   const [searchQuery, setSearchQuery] = useState("")
   const [difficultyFilter, setDifficultyFilter] = useState("")
   const [categoryFilter, setCategoryFilter] = useState("")
   const [sortBy, setSortBy] = useState("")
 
-  // Filtered and sorted quizzes
   const filteredQuizzes = useMemo(() => {
     let filtered = [...quizzes]
 
-    // Apply search filter
     if (searchQuery.trim()) {
       filtered = filtered.filter(
         (quiz) =>
@@ -221,17 +217,14 @@ export default function QuizzesPage() {
       )
     }
 
-    // Apply difficulty filter
     if (difficultyFilter) {
       filtered = filtered.filter((quiz) => quiz.difficulty.toLowerCase() === difficultyFilter.toLowerCase())
     }
 
-    // Apply category filter
     if (categoryFilter) {
       filtered = filtered.filter((quiz) => quiz.category === categoryFilter)
     }
 
-    // Apply sorting
     if (sortBy) {
       filtered.sort((a, b) => {
         switch (sortBy) {
@@ -241,9 +234,9 @@ export default function QuizzesPage() {
           case "duration":
             return a.duration - b.duration
           case "points":
-            return b.points - a.points // Descending order for points
+            return b.points - a.points 
           case "popular":
-            return b.questionsCount - a.questionsCount // Assuming more questions = more popular
+            return b.questionsCount - a.questionsCount 
           default:
             return 0
         }
@@ -253,7 +246,6 @@ export default function QuizzesPage() {
     return filtered
   }, [searchQuery, difficultyFilter, categoryFilter, sortBy])
 
-  // Clear all filters
   const clearFilters = () => {
     setSearchQuery("")
     setDifficultyFilter("")
@@ -261,21 +253,18 @@ export default function QuizzesPage() {
     setSortBy("")
   }
 
-  // Check if any filters are active
   const hasActiveFilters = searchQuery || difficultyFilter || categoryFilter || sortBy
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Navbar />
 
-      {/* Main Content Container */}
       <motion.div
         className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 sm:py-12 md:py-16 lg:py-20"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Hero Section */}
         <motion.div className="text-center mb-8 sm:mb-12 md:mb-16" variants={heroVariants}>
           <motion.h1
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6"
@@ -294,7 +283,6 @@ export default function QuizzesPage() {
           </motion.p>
         </motion.div>
 
-        {/* Stats Section */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12 md:mb-16"
           variants={statsContainerVariants}
@@ -341,10 +329,8 @@ export default function QuizzesPage() {
           ))}
         </motion.div>
 
-        {/* Search and Filter Section */}
         <motion.div className="mb-8 sm:mb-10 md:mb-12" variants={searchSectionVariants}>
           <div className="flex flex-col lg:flex-row gap-4 lg:gap-6 items-start lg:items-center justify-between">
-            {/* Search Bar */}
             <motion.div
               className="w-full lg:w-auto"
               whileHover={{ scale: 1.02 }}
@@ -385,7 +371,6 @@ export default function QuizzesPage() {
               </div>
             </motion.div>
 
-            {/* Filter Options */}
             <motion.div
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full lg:w-auto"
               initial={{ opacity: 0, x: 20 }}
@@ -437,7 +422,6 @@ export default function QuizzesPage() {
             </motion.div>
           </div>
 
-          {/* Clear Filters Button */}
           <AnimatePresence>
             {hasActiveFilters && (
               <motion.div
@@ -460,7 +444,6 @@ export default function QuizzesPage() {
           </AnimatePresence>
         </motion.div>
 
-        {/* Results Count */}
         <motion.div
           className="mb-6 sm:mb-8"
           initial={{ opacity: 0, y: 10 }}
@@ -489,7 +472,6 @@ export default function QuizzesPage() {
           </motion.p>
         </motion.div>
 
-        {/* No Results Message */}
         <AnimatePresence>
           {filteredQuizzes.length === 0 && (
             <motion.div
@@ -544,7 +526,6 @@ export default function QuizzesPage() {
           )}
         </AnimatePresence>
 
-        {/* Quiz Grid */}
         <AnimatePresence>
           {filteredQuizzes.length > 0 && (
             <motion.div
@@ -574,7 +555,6 @@ export default function QuizzesPage() {
           )}
         </AnimatePresence>
 
-        {/* Load More Section - Only show if there are results */}
         {filteredQuizzes.length > 0 && (
           <motion.div
             className="flex flex-col items-center mt-12 sm:mt-16 md:mt-20"
@@ -604,7 +584,6 @@ export default function QuizzesPage() {
           </motion.div>
         )}
 
-        {/* Call to Action Section */}
         <motion.div
           className="bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl p-6 sm:p-8 md:p-12 text-center text-white mt-12 sm:mt-16 md:mt-20"
           variants={ctaVariants}
