@@ -11,19 +11,19 @@ import { FiUsers } from "react-icons/fi"
 import { CiClock1 } from "react-icons/ci"
 import { FiBarChart } from "react-icons/fi"
 
-// Sample course detail data
+// Sample course detail data - Updated with YouTube URLs
 const getCourseDetail = (id: string): CourseDetail | null => {
   const courseDetails: Record<string, CourseDetail> = {
     "1": {
       id: "1",
-      title: "Sign up to Webflow",
+      title: "Next Js For Beginners",
       category: "DEVELOPMENT",
       image: "/placeholder.svg?height=200&width=300",
       rating: 4.8,
       studentsCount: "265.7K",
       isFree: true,
       description:
-        "Pelajari cara menggunakan Webflow dari dasar hingga mahir. Kursus ini akan mengajarkan Anda cara membuat website responsif tanpa coding menggunakan platform Webflow yang powerful.",
+        "Pelajari cara menggunakan Next Js dari dasar hingga mahir. Kursus ini akan mengajarkan Anda cara membuat website responsif tanpa coding menggunakan platform Webflow yang powerful.",
       instructor: {
         name: "Sarah Johnson",
         avatar: "/placeholder.svg?height=40&width=40",
@@ -32,24 +32,15 @@ const getCourseDetail = (id: string): CourseDetail | null => {
       duration: "4 jam 30 menit",
       lessonsCount: 25,
       level: "Pemula",
-      videoUrl: "/sample-video.mp4",
+      videoUrl: "https://www.youtube.com/watch?v=6h649f2fB9Q", // Webflow tutorial
       curriculum: [
         {
           id: "module-1",
-          title: "Pengenalan Webflow",
+          title: "Pengenalan Next Js",
           lessons: [
-            { id: "lesson-1", title: "Apa itu Webflow?", duration: "10:30", isCompleted: true },
-            { id: "lesson-2", title: "Membuat Akun Webflow", duration: "8:15", isCompleted: true },
-            { id: "lesson-3", title: "Interface Webflow", duration: "15:45", isCompleted: false },
-          ],
-        },
-        {
-          id: "module-2",
-          title: "Dasar-dasar Design",
-          lessons: [
-            { id: "lesson-4", title: "Layout dan Grid", duration: "20:30", isCompleted: false },
-            { id: "lesson-5", title: "Typography", duration: "12:15", isCompleted: false },
-            { id: "lesson-6", title: "Colors dan Styling", duration: "18:20", isCompleted: false },
+            { id: "lesson-1", title: "Apa itu Next Js?", duration: "10:30", isCompleted: true },
+            { id: "lesson-2", title: "Membuat File Baru di Next JS", duration: "8:15", isCompleted: true },
+            { id: "lesson-3", title: "Folder Structure in Next Js", duration: "15:45", isCompleted: false },
           ],
         },
       ],
@@ -91,7 +82,7 @@ const getCourseDetail = (id: string): CourseDetail | null => {
       duration: "12 jam 45 menit",
       lessonsCount: 48,
       level: "Menengah",
-      videoUrl: "/sample-video.mp4",
+      videoUrl: "https://www.youtube.com/watch?v=Ke90Tje7VS0", // React tutorial
       curriculum: [
         {
           id: "module-1",
@@ -161,7 +152,7 @@ export default function CourseDetailPage({ params }: CourseDetailPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-            {/* Video Player */}
+            {/* Video Player - Now uses YouTube */}
             <VideoPlayer videoUrl={course.videoUrl} title={course.title} />
 
             {/* Course Info */}
